@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "framework": null,
+  "functions": {
+    "index.php": {
+      "runtime": "vercel-php@0.6.2"
+    },
+    "otp.php": {
+      "runtime": "vercel-php@0.6.2"
+    }
+  },
+  "routes": [
+    {
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/otp",
+      "dest": "/otp.php"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.php"
+    }
+  ],
+  "env": {
+    "PHP_VERSION": "8.1"
+  }
+}
